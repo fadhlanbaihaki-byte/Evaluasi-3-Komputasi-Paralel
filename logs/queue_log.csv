@@ -1,0 +1,115 @@
+timestamp,patient_id,name,age,complaint,severity_score,priority,assigned_doctor,unit,treatment_minutes,arrival_time,served_at
+2026-06-05T17:48:24.857898,DE179FF7,Pasien-7519,74,demam tinggi,8,URGENT,Dr. Budi,IGD,41,17:48:23,17:48:24
+2026-06-05T17:48:24.859889,6E520535,Pasien-5834,33,sakit kepala berat,7,NORMAL,Dr. Andi,Poli,26,17:48:23,17:48:24
+2026-06-05T17:48:24.859889,6AF5FFC3,Pasien-4788,70,sesak napas,4,LOW,Dr. Dewi,Poli,15,17:48:23,17:48:24
+2026-06-05T17:48:26.439475,B97892DA,Pasien-7667,47,sakit kepala berat,1,LOW,Dr. Citra,Umum,6,17:48:25,17:48:26
+2026-06-05T17:48:26.440419,2FF81634,Pasien-4714,49,nyeri dada,4,LOW,Dr. Citra,Umum,14,17:48:25,17:48:26
+2026-06-05T17:48:28.737880,5EB24EDE,Pasien-4678,49,patah tulang,3,LOW,Dr. Andi,Poli,14,17:48:27,17:48:28
+2026-06-05T17:48:28.743173,34A21C96,Pasien-9593,7,patah tulang,8,URGENT,Dr. Budi,Spesialis,36,17:48:27,17:48:28
+2026-06-05T17:48:28.744379,30C4D7C8,Pasien-5963,29,sakit perut,6,NORMAL,Dr. Budi,Poli,29,17:48:27,17:48:28
+2026-06-05T17:48:30.843216,6512B758,Pasien-5227,78,mual dan muntah,8,URGENT,Dr. Citra,IGD,39,17:48:29,17:48:30
+2026-06-05T17:48:30.843703,2A7876B3,Pasien-3539,32,nyeri dada,9,URGENT,Dr. Budi,IGD,55,17:48:29,17:48:30
+2026-06-05T17:48:31.075622,2AD8F8ED,Pasien-4383,59,patah tulang,6,NORMAL,Dr. Andi,Poli,20,17:48:29,17:48:31
+2026-06-05T17:48:32.845959,A154C70A,Pasien-8003,67,demam tinggi,8,URGENT,Dr. Andi,IGD,44,17:48:31,17:48:32
+2026-06-05T17:48:34.674708,5A9CB45B,Pasien-8865,55,patah tulang,7,NORMAL,Dr. Dewi,Umum,25,17:48:33,17:48:34
+2026-06-05T17:48:36.737699,9FA0814F,Pasien-4026,8,sakit perut,8,URGENT,Dr. Budi,IGD,57,17:48:35,17:48:36
+2026-06-05T17:48:38.692032,74384C96,Pasien-1543,56,demam tinggi,5,NORMAL,Dr. Andi,Poli,25,17:48:38,17:48:38
+2026-06-05T17:48:38.692032,1D7E8910,Pasien-8600,64,sakit kepala berat,7,NORMAL,Dr. Budi,Umum,27,17:48:38,17:48:38
+2026-06-05T17:48:38.692032,9E2DE260,Pasien-9865,52,nyeri dada,6,NORMAL,Dr. Dewi,Poli,17,17:48:38,17:48:38
+2026-06-05T17:48:40.889859,66CA63AF,Pasien-6118,79,nyeri dada,8,URGENT,Dr. Dewi,Spesialis,50,17:48:40,17:48:40
+2026-06-05T17:48:40.890870,4E1F9C7C,Pasien-3376,59,demam tinggi,1,LOW,Dr. Citra,Umum,14,17:48:40,17:48:40
+2026-06-05T17:48:40.891862,AFE314F8,Pasien-7580,12,nyeri dada,8,URGENT,Dr. Dewi,IGD,46,17:48:40,17:48:40
+2026-06-05T17:48:42.829188,F5E6DB76,Pasien-2716,27,demam tinggi,5,NORMAL,Dr. Citra,Poli,27,17:48:42,17:48:42
+2026-06-05T17:48:42.831195,7C9A8893,Pasien-1599,25,luka terbuka,8,URGENT,Dr. Budi,Spesialis,55,17:48:42,17:48:42
+2026-06-05T17:48:42.831195,1E78C2AF,Pasien-6006,70,pusing,3,LOW,Dr. Andi,Poli,5,17:48:42,17:48:42
+2026-06-05T17:48:44.706993,2120F06F,Pasien-7033,69,patah tulang,7,NORMAL,Dr. Dewi,Poli,28,17:48:44,17:48:44
+2026-06-05T17:48:46.717924,F455DEFF,Pasien-6859,65,pusing,5,NORMAL,Dr. Dewi,Umum,28,17:48:46,17:48:46
+2026-06-05T17:48:48.923500,07720949,Pasien-7933,6,patah tulang,8,URGENT,Dr. Andi,IGD,49,17:48:48,17:48:48
+2026-06-05T17:48:50.523250,58F8FAD6,Pasien-6934,72,luka terbuka,2,LOW,Dr. Citra,Poli,6,17:48:50,17:48:50
+2026-06-05T17:48:52.751808,F5AF5EA1,Pasien-8547,48,nyeri dada,5,NORMAL,Dr. Andi,Poli,26,17:48:52,17:48:52
+2026-06-05T17:48:52.753016,CF1AC33C,Pasien-1191,68,sakit perut,1,LOW,Dr. Budi,Poli,15,17:48:52,17:48:52
+2026-06-05T17:48:52.754042,91EA2491,Pasien-6701,52,demam tinggi,3,LOW,Dr. Citra,Poli,12,17:48:52,17:48:52
+2026-06-05T17:48:54.995146,E9B4C825,Pasien-8601,9,pusing,10,URGENT,Dr. Citra,IGD,30,17:48:54,17:48:54
+2026-06-05T17:48:54.998139,F3F36247,Pasien-8231,80,pusing,10,URGENT,Dr. Dewi,Spesialis,49,17:48:54,17:48:54
+2026-06-05T17:48:56.872022,1C165D61,Pasien-1305,50,pusing,8,URGENT,Dr. Dewi,Spesialis,46,17:48:56,17:48:56
+2026-06-05T17:48:56.872893,B2945510,Pasien-9023,5,patah tulang,5,NORMAL,Dr. Budi,Poli,21,17:48:56,17:48:56
+2026-06-05T17:48:58.963515,8355580E,Pasien-4136,31,sakit kepala berat,8,URGENT,Dr. Budi,IGD,32,17:48:58,17:48:58
+2026-06-05T17:48:58.964799,AF27B3CA,Pasien-3455,38,sakit kepala berat,1,LOW,Dr. Budi,Poli,5,17:48:58,17:48:58
+2026-06-05T17:49:00.852849,81951940,Pasien-2144,31,batuk,10,URGENT,Dr. Andi,IGD,31,17:49:00,17:49:00
+2026-06-05T17:49:00.853996,18393E40,Pasien-3713,15,demam tinggi,3,LOW,Dr. Andi,Poli,15,17:49:00,17:49:00
+2026-06-05T17:49:02.892109,B68B0CB2,Pasien-4465,72,patah tulang,5,NORMAL,Dr. Dewi,Umum,25,17:49:02,17:49:02
+2026-06-05T17:49:02.893113,E16F3B09,Pasien-6599,42,sakit kepala berat,8,URGENT,Dr. Citra,IGD,51,17:49:02,17:49:02
+2026-06-05T17:58:07.762308,81B9A177,Pasien-9945,5,patah tulang,5,NORMAL,Dr. Citra (Poli Umum),Poli Rawat Jalan,25,17:58:06,17:58:07
+2026-06-05T17:58:07.764963,109146A5,Pasien-9391,48,nyeri dada,9,URGENT,"Dr. Budi, Sp.JP (Spesialis Jantung)",IGD Utama,83,17:58:06,17:58:07
+2026-06-05T17:58:07.764963,4FD85ED4,Pasien-9253,5,sakit perut,2,LOW,Dr. Eko (Klinik 24 Jam),Apotek Internal,6,17:58:06,17:58:07
+2026-06-05T17:58:09.339624,19BFBF4C,Pasien-5403,78,pusing,4,LOW,Dr. Fitri (Poli Umum),Apotek Internal,11,17:58:08,17:58:09
+2026-06-05T17:58:09.340627,D16CF82B,Pasien-1676,73,sakit kepala berat,6,NORMAL,"Dr. Dewi, Sp.A (Poli Anak)",Klinik Umum,23,17:58:08,17:58:09
+2026-06-05T17:58:09.341624,8042B2A4,Pasien-3617,10,pusing,4,LOW,Dr. Fitri (Poli Umum),Apotek Internal,5,17:58:08,17:58:09
+2026-06-05T17:58:11.346230,9BBD335B,Pasien-6690,6,sakit kepala berat,5,NORMAL,Dr. Citra (Poli Umum),Poli Rawat Jalan,30,17:58:10,17:58:11
+2026-06-05T17:58:11.347235,EE6B5D36,Pasien-5350,11,patah tulang,6,NORMAL,Dr. Citra (Poli Umum),Poli Rawat Jalan,28,17:58:10,17:58:11
+2026-06-05T17:58:13.626288,40760F18,Pasien-3292,26,nyeri dada,8,URGENT,"Dr. Budi, Sp.JP (Spesialis Jantung)",IGD Utama,55,17:58:12,17:58:13
+2026-06-05T17:58:13.626288,14F152E7,Pasien-9312,65,luka terbuka,5,NORMAL,"Dr. Dewi, Sp.A (Poli Anak)",Klinik Umum,20,17:58:12,17:58:13
+2026-06-05T17:58:15.700260,944D9A36,Pasien-2220,27,nyeri dada,8,URGENT,"Dr. Andi, Sp.An (IGD)",IGD Utama,83,17:58:14,17:58:15
+2026-06-05T17:58:17.775538,DD16CEBE,Pasien-1389,36,nyeri dada,8,URGENT,"Dr. Budi, Sp.JP (Spesialis Jantung)",IGD Utama,75,17:58:16,17:58:17
+2026-06-05T17:58:17.777529,6112E945,Pasien-1811,54,batuk,2,LOW,Dr. Fitri (Poli Umum),Apotek Internal,13,17:58:16,17:58:17
+2026-06-05T17:58:19.468284,EB58DB43,Pasien-5942,13,sakit perut,3,LOW,Dr. Fitri (Poli Umum),Apotek Internal,7,17:58:18,17:58:19
+2026-06-05T17:58:19.469288,DD2DAAE2,Pasien-9904,26,sakit perut,2,LOW,Dr. Fitri (Poli Umum),Apotek Internal,5,17:58:18,17:58:19
+2026-06-05T17:58:19.470291,5F5C230D,Pasien-7097,56,patah tulang,5,NORMAL,Dr. Citra (Poli Umum),Poli Rawat Jalan,24,17:58:18,17:58:19
+2026-06-05T17:58:21.742462,246116EB,Pasien-2012,70,sakit kepala berat,7,NORMAL,"Dr. Dewi, Sp.A (Poli Anak)",Poli Rawat Jalan,20,17:58:20,17:58:21
+2026-06-05T17:58:21.742462,33FF3336,Pasien-7699,57,sesak napas,9,URGENT,"Dr. Andi, Sp.An (IGD)",ICU Transit,73,17:58:20,17:58:21
+2026-06-05T17:58:21.742462,484C58B9,Pasien-2766,41,sesak napas,10,URGENT,"Dr. Budi, Sp.JP (Spesialis Jantung)",ICU Transit,66,17:58:20,17:58:21
+2026-06-05T17:58:23.358154,37DF8D34,Pasien-7367,49,sakit kepala berat,5,NORMAL,Dr. Citra (Poli Umum),Klinik Umum,15,17:58:22,17:58:23
+2026-06-05T17:58:23.358924,46F26456,Pasien-4670,49,sakit perut,3,LOW,Dr. Eko (Klinik 24 Jam),Apotek Internal,7,17:58:22,17:58:23
+2026-06-05T17:58:23.358924,B3E1C6FB,Pasien-8613,26,batuk,3,LOW,Dr. Fitri (Poli Umum),Klinik Umum,13,17:58:22,17:58:23
+2026-06-05T17:58:25.392663,E9399759,Pasien-4012,23,patah tulang,5,NORMAL,"Dr. Dewi, Sp.A (Poli Anak)",Poli Rawat Jalan,22,17:58:24,17:58:25
+2026-06-05T17:58:25.393853,1CAE0864,Pasien-8406,21,sakit perut,1,LOW,Dr. Fitri (Poli Umum),Apotek Internal,11,17:58:24,17:58:25
+2026-06-05T17:58:26.157585,96193359,Pasien-6358,71,sesak napas,10,URGENT,"Dr. Budi, Sp.JP (Spesialis Jantung)",IGD Utama,68,17:58:24,17:58:26
+2026-06-05T17:58:27.457431,ACEAD2E9,Pasien-4601,55,batuk,2,LOW,Dr. Eko (Klinik 24 Jam),Klinik Umum,15,17:58:26,17:58:27
+2026-06-05T17:58:27.458450,B5E6272D,Pasien-7096,25,patah tulang,6,NORMAL,Dr. Citra (Poli Umum),Poli Rawat Jalan,15,17:58:26,17:58:27
+2026-06-05T17:58:29.974095,2441A37F,Pasien-1428,55,sesak napas,8,URGENT,"Dr. Budi, Sp.JP (Spesialis Jantung)",ICU Transit,54,17:58:28,17:58:29
+2026-06-05T17:58:31.408340,D686AC05,Pasien-3367,57,pusing,2,LOW,Dr. Eko (Klinik 24 Jam),Klinik Umum,14,17:58:30,17:58:31
+2026-06-05T17:58:31.409811,2FEA3679,Pasien-1395,65,demam tinggi,5,NORMAL,Dr. Citra (Poli Umum),Poli Rawat Jalan,26,17:58:30,17:58:31
+2026-06-05T17:58:33.160063,5A3014AA,Pasien-2334,33,pusing,4,LOW,Dr. Fitri (Poli Umum),Apotek Internal,5,17:58:32,17:58:33
+2026-06-05T17:58:35.456104,B6D4BD03,Pasien-3347,68,luka terbuka,7,NORMAL,Dr. Citra (Poli Umum),Poli Rawat Jalan,29,17:58:34,17:58:35
+2026-06-05T17:58:35.458042,2501F06C,Pasien-1546,65,pusing,2,LOW,Dr. Fitri (Poli Umum),Klinik Umum,11,17:58:34,17:58:35
+2026-06-05T17:58:35.458042,28325B6B,Pasien-8646,67,luka terbuka,6,NORMAL,Dr. Citra (Poli Umum),Poli Rawat Jalan,27,17:58:34,17:58:35
+2026-06-05T17:58:37.462319,7F35B6B2,Pasien-5396,61,patah tulang,5,NORMAL,"Dr. Dewi, Sp.A (Poli Anak)",Klinik Umum,26,17:58:36,17:58:37
+2026-06-05T17:58:37.463709,7C01E5C5,Pasien-1447,53,pusing,3,LOW,Dr. Fitri (Poli Umum),Apotek Internal,11,17:58:36,17:58:37
+2026-06-05T17:58:39.957164,53ACD8AA,Pasien-5898,6,sesak napas,8,URGENT,"Dr. Budi, Sp.JP (Spesialis Jantung)",ICU Transit,61,17:58:38,17:58:39
+2026-06-05T17:58:39.959199,83B696E5,Pasien-4277,10,sesak napas,8,URGENT,"Dr. Andi, Sp.An (IGD)",ICU Transit,46,17:58:38,17:58:39
+2026-06-05T17:58:41.541544,04A74A04,Pasien-9016,32,demam tinggi,7,NORMAL,Dr. Citra (Poli Umum),Klinik Umum,28,17:58:40,17:58:41
+2026-06-05T17:58:43.231996,46D7CB00,Pasien-3283,70,pusing,4,LOW,Dr. Eko (Klinik 24 Jam),Apotek Internal,9,17:58:42,17:58:43
+2026-06-05T17:58:43.511358,3A6A1438,Pasien-5370,63,batuk,1,LOW,Dr. Fitri (Poli Umum),Apotek Internal,9,17:58:42,17:58:43
+2026-06-05T17:58:45.290343,451BFC73,Pasien-9226,9,sakit perut,2,LOW,Dr. Eko (Klinik 24 Jam),Klinik Umum,9,17:58:44,17:58:45
+2026-06-05T17:58:47.295902,075BB74B,Pasien-7527,64,mual dan muntah,1,LOW,Dr. Fitri (Poli Umum),Apotek Internal,14,17:58:46,17:58:47
+2026-06-05T17:58:47.296985,D0800B2C,Pasien-7098,9,pusing,1,LOW,Dr. Fitri (Poli Umum),Apotek Internal,7,17:58:46,17:58:47
+2026-06-05T17:58:49.473765,44FE79AD,Pasien-1047,13,demam tinggi,6,NORMAL,"Dr. Dewi, Sp.A (Poli Anak)",Klinik Umum,24,17:58:48,17:58:49
+2026-06-05T17:58:51.941264,6726AC6D,Pasien-2447,33,sesak napas,9,URGENT,"Dr. Budi, Sp.JP (Spesialis Jantung)",IGD Utama,58,17:58:50,17:58:51
+2026-06-05T17:58:51.942315,B1F0AC88,Pasien-5348,45,batuk,2,LOW,Dr. Eko (Klinik 24 Jam),Klinik Umum,12,17:58:50,17:58:51
+2026-06-05T17:58:51.943319,BDCDF981,Pasien-1702,39,nyeri dada,8,URGENT,"Dr. Budi, Sp.JP (Spesialis Jantung)",ICU Transit,54,17:58:50,17:58:51
+2026-06-05T17:58:53.619616,54DB0D46,Pasien-5889,63,demam tinggi,6,NORMAL,"Dr. Dewi, Sp.A (Poli Anak)",Klinik Umum,18,17:58:52,17:58:53
+2026-06-05T17:58:56.088844,6D1A4397,Pasien-6943,52,sesak napas,8,URGENT,"Dr. Budi, Sp.JP (Spesialis Jantung)",IGD Utama,60,17:58:54,17:58:56
+2026-06-05T17:58:57.961416,CEEB5E59,Pasien-8688,54,sesak napas,10,URGENT,"Dr. Budi, Sp.JP (Spesialis Jantung)",ICU Transit,62,17:58:56,17:58:57
+2026-06-05T17:58:58.798166,51C2BDEF,Pasien-1784,12,mual dan muntah,2,LOW,Dr. Fitri (Poli Umum),Klinik Umum,11,17:58:56,17:58:58
+2026-06-05T17:58:58.799224,78510A22,Pasien-8838,20,sesak napas,9,URGENT,"Dr. Budi, Sp.JP (Spesialis Jantung)",ICU Transit,63,17:58:56,17:58:58
+2026-06-05T17:58:59.868433,6B300413,Pasien-9673,17,sesak napas,9,URGENT,"Dr. Andi, Sp.An (IGD)",IGD Utama,45,17:58:58,17:58:59
+2026-06-05T17:58:59.869439,A06DC96F,Pasien-6193,71,mual dan muntah,4,LOW,Dr. Eko (Klinik 24 Jam),Apotek Internal,14,17:58:58,17:58:59
+2026-06-05T17:59:01.539367,7BFE031D,Pasien-9352,26,pusing,3,LOW,Dr. Fitri (Poli Umum),Apotek Internal,6,17:59:00,17:59:01
+2026-06-05T17:59:01.540387,ACBAB3F8,Pasien-3143,66,sakit kepala berat,6,NORMAL,Dr. Citra (Poli Umum),Poli Rawat Jalan,21,17:59:00,17:59:01
+2026-06-05T17:59:01.541889,B0869279,Pasien-2592,51,sakit perut,3,LOW,Dr. Eko (Klinik 24 Jam),Klinik Umum,6,17:59:00,17:59:01
+2026-06-05T17:59:04.161840,130E1ACF,Pasien-2248,36,patah tulang,6,NORMAL,"Dr. Dewi, Sp.A (Poli Anak)",Klinik Umum,27,17:59:02,17:59:03
+2026-06-05T17:59:04.162844,1A1153C2,Pasien-7317,35,sesak napas,10,URGENT,"Dr. Andi, Sp.An (IGD)",ICU Transit,53,17:59:02,17:59:04
+2026-06-05T17:59:05.573156,E5F16409,Pasien-7594,70,sakit kepala berat,7,NORMAL,Dr. Citra (Poli Umum),Klinik Umum,19,17:59:04,17:59:05
+2026-06-05T17:59:07.383052,877211A0,Pasien-9078,32,sakit perut,3,LOW,Dr. Fitri (Poli Umum),Apotek Internal,10,17:59:06,17:59:07
+2026-06-05T17:59:09.659058,A4A8D3EC,Pasien-4603,25,luka terbuka,6,NORMAL,Dr. Citra (Poli Umum),Poli Rawat Jalan,25,17:59:08,17:59:09
+2026-06-05T17:59:09.660380,5B41AB34,Pasien-5677,31,pusing,4,LOW,Dr. Eko (Klinik 24 Jam),Apotek Internal,11,17:59:08,17:59:09
+2026-06-05T17:59:11.537582,DA8A7ADA,Pasien-5439,29,sakit kepala berat,5,NORMAL,Dr. Citra (Poli Umum),Poli Rawat Jalan,15,17:59:10,17:59:11
+2026-06-05T17:59:13.542872,5E0822EE,Pasien-8010,26,demam tinggi,6,NORMAL,"Dr. Dewi, Sp.A (Poli Anak)",Poli Rawat Jalan,20,17:59:12,17:59:13
+2026-06-05T17:59:15.346315,825AB83F,Pasien-3998,36,batuk,3,LOW,Dr. Fitri (Poli Umum),Apotek Internal,8,17:59:14,17:59:15
+2026-06-05T17:59:15.347693,A07C043B,Pasien-1980,6,sakit perut,4,LOW,Dr. Fitri (Poli Umum),Klinik Umum,10,17:59:14,17:59:15
+2026-06-05T17:59:17.619848,6D757579,Pasien-4107,20,luka terbuka,7,NORMAL,"Dr. Dewi, Sp.A (Poli Anak)",Poli Rawat Jalan,20,17:59:16,17:59:17
+2026-06-05T17:59:17.619848,2E4E3B14,Pasien-5559,52,patah tulang,5,NORMAL,Dr. Citra (Poli Umum),Poli Rawat Jalan,23,17:59:16,17:59:17
+2026-06-05T17:59:20.091093,D1471BD6,Pasien-3526,37,sesak napas,9,URGENT,"Dr. Andi, Sp.An (IGD)",IGD Utama,84,17:59:18,17:59:20
+2026-06-05T17:59:21.728270,E70AEE7E,Pasien-4270,45,luka terbuka,7,NORMAL,"Dr. Dewi, Sp.A (Poli Anak)",Klinik Umum,15,17:59:20,17:59:21
+2026-06-05T17:59:21.729278,13DB8C08,Pasien-5582,51,patah tulang,5,NORMAL,Dr. Citra (Poli Umum),Klinik Umum,17,17:59:20,17:59:21
+2026-06-05T17:59:21.729278,6B289A36,Pasien-6805,47,mual dan muntah,3,LOW,Dr. Eko (Klinik 24 Jam),Apotek Internal,15,17:59:20,17:59:21
