@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Parallel Queue Simulator — Klinik</title>
+<style>
+  :root {
+    --bg:      #0a0f1e;
+    --bg2:     #111827;
+    --bg3:     #1a2235;
+    --border:  #1e3a5f;
+    --text:    #e2e8f0;
+    --muted:   #64748b;
+    --red:     #ef4444;
+    --amber:   #f59e0b;
+    --green:   #22c55e;
+    --blue:    #3b82f6;
+    --cyan:    #06b6d4;
+    --purple:  #a855f7;
+    --red-bg:  #3b0a0a;
+    --amb-bg:  #3b2700;
+    --grn-bg:  #052e16;
+    --blu-bg:  #0c1d3b;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; min-height: 100vh; }
+
+  /* ── Header ── */
+  header {
+    background: var(--bg2);
+    border-bottom: 1px solid var(--border);
+    padding: 14px 24px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  header h1 { font-size: 18px; font-weight: 600; color: var(--cyan); letter-spacing: .5px; }
+  header h1 span { color: var(--muted); font-weight: 400; font-size: 14px; margin-left: 10px; }
+  .status-pill {
+    display: flex; align-items: center; gap: 7px;
+    background: var(--bg3); border: 1px solid var(--border);
+    padding: 5px 14px; border-radius: 20px; font-size: 13px; color: var(--green);
+  }
+  .pulse { width: 8px; height: 8px; background: var(--green); border-radius: 50%;
+    box-shadow: 0 0 0 0 rgba(34,197,94,.5);
+    animation: pulse 1.5s infinite; }
+  @keyframes pulse { 70%{box-shadow:0 0 0 7px transparent} 100%{box-shadow:0 0 0 0 transparent} }
+  .btn-row { display: flex; gap: 10px; }
+  button {
+    background: var(--bg3); border: 1px solid var(--border); color: var(--text);
+    padding: 6px 16px; border-radius: 8px; cursor: pointer; font-size: 13px; transition: .15s;
+  }
+  button:hover { background: var(--border); }
+  button.accent { background: var(--blue); border-color: var(--blue); color: #fff; }
+  button.accent:hover { background: #2563eb; }
+
+  /* ── Layout ── */
+  main { padding: 20px 24px; display: grid; gap: 20px; }
+
+  /* ── Stat cards ── */
+  .stat-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .stat-card {
+    background: var(--bg2); border: 1px solid var(--border);
+    border-radius: 12px; padding: 18px;
+  }
+  .stat-card .label { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); margin-bottom: 8px; }
+  .stat-card .value { font-size: 36px; font-weight: 700; line-height: 1; }
+  .stat-card .sub   { font-size: 12px; color: var(--muted); margin-top: 6px; }
+
+  /* ── Priority cards ── */
+  .priority-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .pcard {
+    border-radius: 12px; padding: 16px 18px; border: 1px solid;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .pcard.urgent { background: var(--red-bg); border-color: var(--red); }
+  .pcard.normal { background: var(--amb-bg); border-color: var(--amber); }
+  .pcard.low    { background: var(--grn-bg); border-color: var(--green); }
+  .pcard .icon { font-size: 28px; }
+  .pcard .pval { font-size: 30px; font-weight: 700; }
+  .pcard .plbl { font-size: 12px; color: var(--muted); }
+  .pcard.urgent .pval { color: var(--red); }
+  .pcard.normal .pval { color: var(--amber); }
+  .pcard.low    .pval { color: var(--green); }
+
+  /* ── Two-column ── */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+  /* ── Panel ── */
+  .panel {
+    background: var(--bg2); border: 1px solid var(--border);
+    border-radius: 12px; padding: 18px;
+    overflow-x: auto;
+  }
+  .panel h2 { font-size: 13px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 14px; }
+
+  /* ── Pipeline flowchart ── */
+  .pipeline { display: flex; align-items: center; gap: 0; }
+  .pipe-node {
+    flex: 1; background: var(--bg3); border: 1px solid var(--border);
+    border-radius: 10px; padding: 12px; text-align: center; position: relative; transition: .3s;
+  }
+  .pipe-node.active { border-color: var(--cyan); box-shadow: 0 0 14px rgba(6,182,212,.25); }
+  .pipe-node .pn-label { font-size: 11px; color: var(--muted); margin-bottom: 4px; }
+  .pipe-node .pn-name  { font-size: 13px; font-weight: 600; }
+  .pipe-arrow { color: var(--border); font-size: 20px; padding: 0 6px; flex-shrink: 0; }
+  .pipe-arrow.lit { color: var(--cyan); }
+
+  /* ── Patient table ── */
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th { color: var(--muted); font-weight: 500; text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border); font-size: 11px; text-transform: uppercase; letter-spacing: .5px; }
+  td { padding: 9px 10px; border-bottom: 1px solid rgba(30,58,95,.4); }
+  tr:last-child td { border-bottom: none; }
+  .badge {
+    display: inline-block; padding: 2px 9px; border-radius: 20px; font-size: 11px; font-weight: 600;
+  }
+  .badge-URGENT { background: var(--red-bg); color: var(--red); border: 1px solid var(--red); }
+  .badge-NORMAL { background: var(--amb-bg); color: var(--amber); border: 1px solid var(--amber); }
+  .badge-LOW    { background: var(--grn-bg); color: var(--green); border: 1px solid var(--green); }
+
+  /* ── Benchmark ── */
+  .bench-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .bench-item { background: var(--bg3); border-radius: 8px; padding: 12px 14px; }
+  .bench-item .blabel { font-size: 11px; color: var(--muted); margin-bottom: 4px; }
+  .bench-item .bval   { font-size: 22px; font-weight: 700; }
+  .bench-item .bunit  { font-size: 11px; color: var(--muted); margin-left: 4px; }
+  .good { color: var(--green); }
+  .warn { color: var(--amber); }
+
+  /* ── Bar chart ── */
+  .bar-chart { display: flex; flex-direction: column; gap: 10px; }
+  .bar-row { display: flex; align-items: center; gap: 10px; }
+  .bar-label { width: 70px; font-size: 12px; color: var(--muted); text-align: right; }
+  .bar-track { flex: 1; height: 14px; background: var(--bg3); border-radius: 7px; overflow: hidden; }
+  .bar-fill   { height: 100%; border-radius: 7px; transition: width .6s ease; }
+  .bar-value  { width: 40px; font-size: 12px; font-weight: 600; }
+  .bar-arrived  .bar-fill { background: var(--blue); }
+  .bar-triaged  .bar-fill { background: var(--purple); }
+  .bar-served   .bar-fill { background: var(--green); }
+
+  /* ── Log ── */
+  #log-box { font-size: 12px; font-family: monospace; color: var(--muted); max-height: 160px; overflow-y: auto; }
+  #log-box .log-line { padding: 2px 0; border-bottom: 1px solid rgba(30,58,95,.3); }
+  #log-box .log-line span { color: var(--cyan); margin-right: 6px; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>⚕ Parallel Queue Simulator <span>— Sistem Antrian Klinik</span></h1>
+  <div class="status-pill"><div class="pulse"></div> LIVE</div>
+  <div class="btn-row">
+    <button class="accent" onclick="runBenchmark()">▶ Benchmark</button>
+    <button onclick="resetStats()">↺ Reset</button>
+  </div>
+</header>
+
+<main>
+
+  <div class="stat-row">
+    <div class="stat-card">
+      <div class="label">Total Datang</div>
+      <div class="value" id="val-arrived" style="color:var(--cyan)">0</div>
+      <div class="sub">pasien terdaftar</div>
+    </div>
+    <div class="stat-card">
+      <div class="label">Total Triase</div>
+      <div class="value" id="val-triaged" style="color:var(--purple)">0</div>
+      <div class="sub">diproses Dokter Triase</div>
+    </div>
+    <div class="stat-card">
+      <div class="label">Total Dilayani</div>
+      <div class="value" id="val-served" style="color:var(--green)">0</div>
+      <div class="sub">oleh Dokter Spesialis</div>
+    </div>
+    <div class="stat-card">
+      <div class="label">Antrian Aktif</div>
+      <div class="value" id="val-waiting" style="color:var(--amber)">0</div>
+      <div class="sub">menunggu triase</div>
+    </div>
+  </div>
+
+  <div class="priority-row">
+    <div class="pcard urgent">
+      <div class="icon">🚨</div>
+      <div>
+        <div class="pval" id="val-urgent">0</div>
+        <div class="plbl">URGENT — Segera ditangani</div>
+      </div>
+    </div>
+    <div class="pcard normal">
+      <div class="icon">⚠️</div>
+      <div>
+        <div class="pval" id="val-normal">0</div>
+        <div class="plbl">NORMAL — Antre biasa</div>
+      </div>
+    </div>
+    <div class="pcard low">
+      <div class="icon">✅</div>
+      <div>
+        <div class="pval" id="val-low">0</div>
+        <div class="plbl">LOW — Keluhan ringan</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h2>Distributed Pipeline — Alur Data Antar Node</h2>
+    <div class="pipeline" id="pipeline">
+      <div class="pipe-node" id="pn-a">
+        <div class="pn-label">Node A</div>
+        <div class="pn-name">Pendaftaran</div>
+      </div>
+      <div class="pipe-arrow" id="pa-ab">→</div>
+      <div class="pipe-node" id="pn-b">
+        <div class="pn-label">Node B ★ Paralel Thread</div>
+        <div class="pn-name">Pemeriksaan Triase</div>
+      </div>
+      <div class="pipe-arrow" id="pa-bc">→</div>
+      <div class="pipe-node" id="pn-c">
+        <div class="pn-label">Node C ★ Paralel Thread</div>
+        <div class="pn-name">Tindakan Spesialis</div>
+      </div>
+      <div class="pipe-arrow" id="pa-cd">→</div>
+      <div class="pipe-node" id="pn-d">
+        <div class="pn-label">Node D</div>
+        <div class="pn-name">Log CSV</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="two-col">
+
+    <div class="panel">
+      <h2>Throughput Sistem</h2>
+      <div class="bar-chart">
+        <div class="bar-row bar-arrived">
+          <div class="bar-label">Datang</div>
+          <div class="bar-track"><div class="bar-fill" id="bar-arrived" style="width:0%"></div></div>
+          <div class="bar-value" id="bv-arrived">0</div>
+        </div>
+        <div class="bar-row bar-triaged">
+          <div class="bar-label">Triase</div>
+          <div class="bar-track"><div class="bar-fill" id="bar-triaged" style="width:0%"></div></div>
+          <div class="bar-value" id="bv-triaged">0</div>
+        </div>
+        <div class="bar-row bar-served">
+          <div class="bar-label">Dilayani</div>
+          <div class="bar-track"><div class="bar-fill" id="bar-served" style="width:0%"></div></div>
+          <div class="bar-value" id="bv-served">0</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h2>Hasil Benchmark Paralel</h2>
+      <div id="bench-placeholder" style="color:var(--muted);font-size:13px;padding-top:8px">
+        Klik tombol <strong>▶ Benchmark</strong> untuk mengukur speedup.
+      </div>
+      <div class="bench-grid" id="bench-grid" style="display:none">
+        <div class="bench-item">
+          <div class="blabel">Sequential</div>
+          <div class="bval warn" id="b-seq">—<span class="bunit">s</span></div>
+        </div>
+        <div class="bench-item">
+          <div class="blabel">Parallel</div>
+          <div class="bval good" id="b-par">—<span class="bunit">s</span></div>
+        </div>
+        <div class="bench-item">
+          <div class="blabel">Speedup</div>
+          <div class="bval good" id="b-speedup">—<span class="bunit">×</span></div>
+        </div>
+        <div class="bench-item">
+          <div class="blabel">Efisiensi</div>
+          <div class="bval good" id="b-eff">—<span class="bunit">%</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="panel">
+    <h2>Riwayat Pasien Dilayani (20 Terakhir)</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Keluhan Utama</th>
+          <th>Skor Keparahan</th>
+          <th>Prioritas</th>
+          <th>Dokter Triase</th>
+          <th>Dokter Spesialis</th>
+          <th>Unit Pelayanan</th>
+          <th>Durasi (mnt)</th>
+          <th>Waktu Selesai</th>
+        </tr>
+      </thead>
+      <tbody id="patient-tbody">
+        <tr><td colspan="9" style="color:var(--muted);text-align:center;padding:20px">Menunggu data...</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="panel">
+    <h2>Log Real-time</h2>
+    <div id="log-box"></div>
+  </div>
+
+</main>
+
+<script>
+  let prevServed = 0;
+  let step = 0;
+  const pipeNodes  = ['pn-a','pn-b','pn-c','pn-d'];
+  const pipeArrows = ['pa-ab','pa-bc','pa-cd'];
+
+  // ── SSE ──────────────────────────────────────────────────────
+  function startSSE() {
+    const es = new EventSource('/api/stream');
+    es.onmessage = e => updateDashboard(JSON.parse(e.data));
+    es.onerror   = () => setTimeout(startSSE, 3000);
+  }
+
+  // ── Update UI ────────────────────────────────────────────────
+  function updateDashboard(d) {
+    setText('val-arrived', d.total_arrived  || 0);
+    setText('val-triaged', d.total_triaged  || 0);
+    setText('val-served',  d.total_served   || 0);
+    setText('val-waiting', d.waiting_registration || 0);
+    setText('val-urgent',  d.triage_urgent  || 0);
+    setText('val-normal',  d.triage_normal  || 0);
+    setText('val-low',     d.triage_low     || 0);
+
+    // Bar chart
+    const max = Math.max(d.total_arrived || 1, 1);
+    setBar('arrived', d.total_arrived || 0, max);
+    setBar('triaged', d.total_triaged || 0, max);
+    setBar('served',  d.total_served  || 0, max);
+
+    // Tabel pasien
+    if (d.recent_patients && d.recent_patients.length) {
+      updateTable([...d.recent_patients].reverse());
+    }
+
+    // Benchmark
+    if (d.benchmark) {
+      const b = d.benchmark;
+      document.getElementById('bench-placeholder').style.display = 'none';
+      document.getElementById('bench-grid').style.display = 'grid';
+      setHTML('b-seq',     `${b.sequential_time}<span class="bunit"> s</span>`);
+      setHTML('b-par',     `${b.parallel_time}<span class="bunit"> s</span>`);
+      setHTML('b-speedup', `${b.speedup}<span class="bunit"> ×</span>`);
+      setHTML('b-eff',     `${b.efficiency}<span class="bunit"> %</span>`);
+    }
+
+    // Pipeline animation
+    if ((d.total_served || 0) !== prevServed) {
+      animatePipeline();
+      prevServed = d.total_served || 0;
+    }
+  }
+
+  function setText(id, val) {
+    const el = document.getElementById(id);
+    if (el) el.textContent = val;
+  }
+  function setHTML(id, val) {
+    const el = document.getElementById(id);
+    if (el) el.innerHTML = val;
+  }
+  function setBar(key, val, max) {
+    const pct = Math.min(100, Math.round((val / max) * 100));
+    const bar = document.getElementById('bar-' + key);
+    const bv  = document.getElementById('bv-'  + key);
+    if (bar) bar.style.width = pct + '%';
+    if (bv)  bv.textContent  = val;
+  }
+
+  function updateTable(patients) {
+    const tbody = document.getElementById('patient-tbody');
+    tbody.innerHTML = patients.slice(0, 20).map(p => `
+      <tr>
+        <td style="font-family:monospace;font-size:12px">${p.id}</td>
+        <td>${p.complaint || '—'}</td>
+        <td style="text-align:center; font-weight:bold;">${p.severity_score || '—'}</td>
+        <td><span class="badge badge-${p.priority}">${p.priority}</span></td>
+        <td style="color:var(--cyan)">${p.triage_by || '—'}</td>
+        <td style="color:var(--green)">${p.assigned_doctor || '—'}</td>
+        <td>${p.unit || '—'}</td>
+        <td style="text-align:center">${p.treatment_minutes || '—'}</td>
+        <td style="font-family:monospace;font-size:12px">${p.served_at || '—'}</td>
+      </tr>`).join('');
+  }
+
+  // ── Pipeline animation ───────────────────────────────────────
+  function animatePipeline() {
+    let i = 0;
+    const interval = setInterval(() => {
+      pipeNodes.forEach((id, idx) => {
+        document.getElementById(id).classList.toggle('active', idx === i);
+      });
+      pipeArrows.forEach((id, idx) => {
+        document.getElementById(id).classList.toggle('lit', idx === i - 1);
+      });
+      if (++i > pipeNodes.length) {
+        clearInterval(interval);
+        pipeNodes.forEach(id  => document.getElementById(id).classList.remove('active'));
+        pipeArrows.forEach(id => document.getElementById(id).classList.remove('lit'));
+      }
+    }, 400);
+  }
+
+  // ── Addlog ───────────────────────────────────────────────────
+  function addLog(msg) {
+    const box  = document.getElementById('log-box');
+    const time = new Date().toLocaleTimeString('id-ID');
+    const line = document.createElement('div');
+    line.className = 'log-line';
+    line.innerHTML = `<span>${time}</span>${msg}`;
+    box.prepend(line);
+    while (box.children.length > 30) box.removeChild(box.lastChild);
+  }
+
+  // ── Actions ──────────────────────────────────────────────────
+  function runBenchmark() {
+    addLog('Benchmark dimulai (8 pasien, 4 core)...');
+    fetch('/api/benchmark').then(() => addLog('Benchmark selesai, hasil muncul di panel.'));
+  }
+
+  function resetStats() {
+    fetch('/api/reset').then(() => addLog('Statistik di-reset.'));
+  }
+
+  // ── Init ─────────────────────────────────────────────────────
+  startSSE();
+  setInterval(() => addLog('Sistem berjalan — menunggu data node...'), 5000);
+  addLog('Dashboard terhubung ke server.');
+</script>
+</body>
+</html>
