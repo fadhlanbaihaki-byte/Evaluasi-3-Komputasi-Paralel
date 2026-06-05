@@ -1,6 +1,9 @@
 # Parallel Queue Simulator — Sistem Antrian Klinik
 **Mata Kuliah: Komputasi Paralel**
 
+152024021 - Fadhlan Baihaki Ar Rusadi
+152024117 - Joddy Lukmanul Hakim
+152024152 - Deden Roga Nurhidayah
 ---
 
 ## Deskripsi
